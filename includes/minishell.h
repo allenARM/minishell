@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 13:51:19 by amelikia          #+#    #+#             */
-/*   Updated: 2019/01/15 13:51:20 by amelikia         ###   ########.fr       */
+/*   Created: 2019/01/16 17:50:53 by amelikia          #+#    #+#             */
+/*   Updated: 2019/01/16 17:57:12 by amelikia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <limits.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+
+# define BLUE  "\033[1;34m"
+# define WHITE  "\x1B[39m"
 
 typedef struct		s_env
 {
@@ -34,7 +37,7 @@ typedef struct		s_info
 
 typedef struct		s_list
 {
-	char			*dir;
+	char			*name;
 	struct s_list	*next;
 }					t_list;
 
@@ -60,5 +63,13 @@ char				***find_tild(char ***commands,\
 	t_info *info);
 void				change_pwd(char *address, t_info *info);
 char				*new_pwd(char *old_pwd, char *address);
+void				initialize_readline(void);
+void				clean_all_commands(char ****comm);
+void				manage_dollar(char **args, t_info *info);
+char				***parse_with_args(char **args);
+int					ft_list_size(t_list *root);
+void				print_command(char *path, char **argv, t_env *env);
+char				*add_to_str(char *str, char c);
+t_list				*clean_empty_elems(t_list *list);
 
 #endif

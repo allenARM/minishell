@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 13:50:53 by amelikia          #+#    #+#             */
-/*   Updated: 2019/01/15 13:50:54 by amelikia         ###   ########.fr       */
+/*   Created: 2019/01/16 17:52:10 by amelikia          #+#    #+#             */
+/*   Updated: 2019/01/17 12:01:28 by amelikia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*find_in_env(char *find, t_info *info)
 		tmp = tmp->next;
 	if (tmp)
 		return (tmp->val);
-	return (NULL);
+	return (find);
 }
 
 char	**move_list_into_array(t_env *env)

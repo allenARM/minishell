@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 13:51:04 by amelikia          #+#    #+#             */
-/*   Updated: 2019/01/15 14:10:44 by amelikia         ###   ########.fr       */
+/*   Created: 2019/01/16 17:52:25 by amelikia          #+#    #+#             */
+/*   Updated: 2019/01/16 17:52:26 by amelikia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*create_return_val(t_list *pwd)
 	while (pwd)
 	{
 		str = ft_update(str, ft_strjoin(str, "/"));
-		str = ft_update(str, ft_strjoin(str, pwd->dir));
+		str = ft_update(str, ft_strjoin(str, pwd->name));
 		pwd = pwd->next;
 	}
 	ft_list_clean(&tmp);

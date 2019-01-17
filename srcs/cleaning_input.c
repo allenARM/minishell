@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 13:50:43 by amelikia          #+#    #+#             */
-/*   Updated: 2019/01/15 13:50:43 by amelikia         ###   ########.fr       */
+/*   Created: 2019/01/16 17:50:57 by amelikia          #+#    #+#             */
+/*   Updated: 2019/01/16 17:50:59 by amelikia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*cleaning_string(char *s)
 	while (s[i] == ' ' || s[i] == '\t')
 		i++;
 	len = find_real_length(s);
-	ret = ft_strnew(4096);
+	ret = (char*)malloc(sizeof(char*) * 4096);
 	while (i <= len)
 	{
 		if (s[i] == ' ')

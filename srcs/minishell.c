@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/26 13:07:42 by amelikia          #+#    #+#             */
-/*   Updated: 2019/01/15 13:51:08 by amelikia         ###   ########.fr       */
+/*   Created: 2019/01/16 17:52:40 by amelikia          #+#    #+#             */
+/*   Updated: 2019/01/16 17:54:34 by amelikia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	main_while_loop(t_info info)
 	while (1)
 	{
 		commands = NULL;
-		line = readline(CBLUE"$> " CWHITE);
+		initialize_readline();
+		line = readline(BLUE"$> " WHITE);
 		if (!line)
 			break ;
 		add_history(line);
@@ -67,9 +68,8 @@ void	main_while_loop(t_info info)
 			continue ;
 		}
 		commands = cleaning_matrix(&commands);
-		d_comm = divide_commands(commands);
+		d_comm = parse_with_args(commands);
 		compare_to_commands(d_comm, &info);
-		clean_all_commands(&d_comm);
 		free(line);
 	}
 }

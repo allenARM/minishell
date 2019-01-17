@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 13:50:59 by amelikia          #+#    #+#             */
-/*   Updated: 2019/01/15 13:51:00 by amelikia         ###   ########.fr       */
+/*   Created: 2019/01/16 17:52:19 by amelikia          #+#    #+#             */
+/*   Updated: 2019/01/16 17:52:21 by amelikia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_list_clean(t_list **list)
 	node = *list;
 	if (node && node->next)
 		ft_list_clean(&node->next);
-	ft_strdel(&node->dir);
+	ft_strdel(&node->name);
 	ft_memdel((void**)list);
 }
 
@@ -50,14 +50,14 @@ t_list	*ft_list_add_back(t_list *list, char *dir)
 	if (list == NULL)
 	{
 		list = (t_list *)malloc(sizeof(t_list));
-		list->dir = ft_strdup(dir);
+		list->name = ft_strdup(dir);
 		list->next = NULL;
 		return (list);
 	}
 	node = (t_list *)malloc(sizeof(t_list));
 	begining = list;
 	node->next = NULL;
-	node->dir = ft_strdup(dir);
+	node->name = ft_strdup(dir);
 	while (list->next)
 		list = list->next;
 	list->next = node;
@@ -73,7 +73,7 @@ void	ft_list_remove_back(t_list **list)
 		return ;
 	if (ft_list_size(*list) == 1)
 	{
-		free((*list)->dir);
+		free((*list)->name);
 		free(*list);
 		*list = NULL;
 		return ;
@@ -83,6 +83,6 @@ void	ft_list_remove_back(t_list **list)
 		node = node->next;
 	tmp = node->next;
 	node->next = NULL;
-	free(tmp->dir);
+	free(tmp->name);
 	free(tmp);
 }

@@ -1,10 +1,9 @@
-
 INCLUDES = -Iincludes -Ilibft
 
-SRCS =	srcs/minishell.c srcs/cleaning_input.c srcs/utils.c\
+SRCS =	srcs/minishell.c srcs/cleaning_input.c srcs/utils.c srcs/parse_quotes.c\
 		srcs/compare_for_commands.c srcs/everything_related_to_env_1.c\
 		srcs/manage_cd.c srcs/list_struct_operations.c srcs/env_struct_operations.c\
-		srcs/everything_related_to_env_2.c
+		srcs/everything_related_to_env_2.c srcs/matches.c srcs/manage_dollar.c\
 
 LIBFT = -L ./libft -lft
 
@@ -24,14 +23,14 @@ BLUE_EXTRA = \033[1;36m
 
 %.o:%.c
 			@echo "$(GREEN) - Creating $(GREEN_EXTRA)$<...$(RESET)"
-			@gcc -Wall -Wextra -Werror -c $< -o $@ $(INCLUDES) -g
+			@gcc -Wall -Wextra -Werror -c $< -o $@ $(INCLUDES)
 
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
 	@make -C libft
 	@echo "$(GREEN)Compiling executable $(GREEN_EXTRA)$(EXEC)$(RESET)"
-	@gcc -Wall -Wextra -Werror -o $(EXEC) $(OBJ) $(INCLUDE) $(LIBFT) $(READLINE) -g
+	@gcc -Wall -Wextra -Werror -o $(EXEC) $(OBJ) $(INCLUDE) $(LIBFT) $(READLINE)
 	@echo "$(BLUE_EXTRA)$(EXEC)$(BLUE): Complete$(RESET)"
 
 clean:
